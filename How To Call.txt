@@ -8,6 +8,12 @@ Example:
     	Terror.instance.onEvent(event); 
     	event.setType(EventType.PRE);
     	event.call();
+    	entity.posX = event.getX();
+    	entity.posY = event.getY();
+    	entity.posZ = event.getZ();
+    	entity.rotationYaw = event.getYaw();
+    	entity.rotationPitch = event.getPitch();
+    	entity.onGround = event.isOnGround();
         this.entityId = entity.getEntityId();
         this.action = action; 
         event.setType(EventType.POST);
