@@ -1,0 +1,14 @@
+Go to C02PacketUseEntity (in line 26) and just call it using your event system.
+
+Example:
+
+    public C02PacketUseEntity(Entity entity, C02PacketUseEntity.Action action)
+    {
+    	EventUseEntity event = new EventUseEntity(entity, entity.posX, entity.posY, entity.posZ, entity.rotationYaw, entity.rotationPitch, entity.onGround);
+    	Terror.instance.onEvent(event); 
+    	event.setType(EventType.PRE);
+    	event.call();
+        this.entityId = entity.getEntityId();
+        this.action = action; 
+        event.setType(EventType.POST);
+    }
